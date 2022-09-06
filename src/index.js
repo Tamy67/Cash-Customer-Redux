@@ -1,17 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { Provider } from 'react-redux';
+import {store} from './store'
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+// store -> object containing multiple methods ( get state, change state using dispatch and subscribe to change state )
+// dispatch -> action is transferred
+// state -> object, array or primitive. Store data
+// action -> object with a required field type. Which determines how the state will change. const action = {type: '', payload: '?'}
+// reducer -> pure function, takes state and action. Logic: what action was passed to the function. Created with switch case, default return state.
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <Provider store={store}>
+      <App />
+    </Provider>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

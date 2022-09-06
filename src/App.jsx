@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCustomers } from "./asyncAction/Customers";
-import {addCustomerAction, removeCustomerAction} from './store/CustomerReducer'
+import { fetchCustomers } from "./asyncAction/customers";
+import {addCustomerAction, removeCustomerAction} from './store/customerReducer'
 
 function App() {
   const dispatch = useDispatch();
@@ -19,26 +19,25 @@ function App() {
     
     
     const addCustomer = (name) => {
-        const customer = {
-            name,
-            id: Date.now()
-        }
+      const customer = {
+        name,
+        id: Date.now()
+      };
     dispatch(addCustomerAction(customer));
     };
     
-    const removeCustomer = (customer) => {
-        dispatch(removeCustomerAction(customer.id));
-    }
+  const removeCustomer = (customer) => {
+    dispatch(removeCustomerAction(customer.id));
+  };
     
-    const addManyCustomers = () => {
-        dispatch(fetchCustomers())
-    }
+  const addManyCustomers = () => {
+    dispatch(fetchCustomers());
+  };
     
-  console.log(customers);
   return (
     <div>
         <div style={styles.divFlex}>
-            <div style={styles.cash}>Balance: {cash}</div>
+            <div style={styles.cash}>Balance: {cash} </div>
             <div style={{ display: "flex" }}>
                 <button style={styles.btn} onClick={() => addCash(Number(prompt()))}>Add cash</button>
                 <button style={styles.btn} onClick={() => getCash(Number(prompt()))}>Take cash</button>
